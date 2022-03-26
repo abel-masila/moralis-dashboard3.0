@@ -1,9 +1,11 @@
 import { Button, Flex, Text } from '@chakra-ui/react';
 import Head from 'next/head';
 import { useMoralis } from 'react-moralis';
+import Header from '../components/Header';
 
 export default function Home() {
-  const { isAuthenticated, authenticate } = useMoralis();
+  const { isAuthenticated, authenticate, user, logout, isLoggingOut } =
+    useMoralis();
 
   if (!isAuthenticated) {
     return (
@@ -26,7 +28,11 @@ export default function Home() {
             colorScheme="purple"
             size="lg"
             mt="6"
-            onClick={() => authenticate({})}
+            onClick={() =>
+              authenticate({
+                signingMessage: 'Login to dashboard3',
+              })
+            }
           >
             Login with Metamask
           </Button>
@@ -40,7 +46,9 @@ export default function Home() {
       <Head>
         <title>Dashboard3</title>
       </Head>
-      <Flex></Flex>
+      <Flex direction="column" width="100vw" height="100vh">
+        <Header user={user} logout={logout} isLoggingOut={isLoggingOut} />
+      </Flex>
     </>
   );
 }
