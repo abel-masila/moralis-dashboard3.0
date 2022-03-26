@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 import Head from 'next/head';
 import { useMoralis } from 'react-moralis';
+import Balance from '../components/Balance';
 import Header from '../components/Header';
 import Profile from '../components/Profile';
 
@@ -77,7 +78,9 @@ export default function Home() {
               <TabPanel>
                 <Profile user={user} />
               </TabPanel>
-              <TabPanel>Balance</TabPanel>
+              <TabPanel>
+                <Balance user={user} />
+              </TabPanel>
               <TabPanel>Transactions</TabPanel>
               <TabPanel>NFTS</TabPanel>
               <TabPanel>Send ETH</TabPanel>
