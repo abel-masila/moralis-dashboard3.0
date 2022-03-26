@@ -12,6 +12,7 @@ import {
 import Head from 'next/head';
 import { useMoralis } from 'react-moralis';
 import Header from '../components/Header';
+import Profile from '../components/Profile';
 
 export default function Home() {
   const { isAuthenticated, authenticate, user, logout, isLoggingOut } =
@@ -73,7 +74,9 @@ export default function Home() {
               <Tab fontWeight="bold">Send ETH</Tab>
             </TabList>
             <TabPanels>
-              <TabPanel>Profile</TabPanel>
+              <TabPanel>
+                <Profile />
+              </TabPanel>
               <TabPanel>Balance</TabPanel>
               <TabPanel>Transactions</TabPanel>
               <TabPanel>NFTS</TabPanel>
