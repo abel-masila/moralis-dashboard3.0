@@ -6,7 +6,9 @@ import CustomContainer from './CustomContainer';
 
 export default function Balance({ user }) {
   const [ethBalance, setEthBalance] = React.useState(0);
+
   const Web3Api = useMoralisWeb3Api();
+
   const { fetchERC20Balances, data } = useERC20Balances();
 
   const fetchNativeBalance = async () => {
@@ -30,10 +32,11 @@ export default function Balance({ user }) {
     });
   }, []);
 
-  console.log(data);
   return (
     <CustomContainer>
-      <Text>My ERC20 Tokens</Text>
+      <Text mb="6" fontSize="xl" fontWeight="bold">
+        My ERC20 Tokens
+      </Text>
       {ethBalance && (
         <Text>
           💰&nbsp;{ethBalance}
